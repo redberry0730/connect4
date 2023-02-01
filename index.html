@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Connect4</title>
+        <script type="module">
+            import { Connect4 } from "./Connect4.js";
+            function init() {
+                const canvas = document.getElementById("game");
+                canvas.width = 500;
+                canvas.height = 500;
+                canvas.style.width = '460px';
+                canvas.style.imageRendering = "pixelated";
+                canvas.style.border = '20px double black';
+                canvas.style.marginLeft = 'auto';
+                canvas.style.marginRight = 'auto';
+                canvas.style.display = 'block';
+                const messageBox = document.getElementById("messageBox");
+                messageBox.style.textAlign = 'center';
+                messageBox.style.fontSize = '20px';
+                let c4 = new Connect4(canvas, messageBox);
+                c4.drawBoard();
+                canvas.onclick = function(e) {
+                    c4.clickHandler(e);
+                }
+            }
+            window.onload = init;
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align: center; font-size: 60px; margin-bottom: 0px;">Play Connect4!</h1>
+        <h2 style="text-align: center; font-size: 23px; color:gray; margin-top: 0px;">Created using JavaScript</h2>
+        <canvas id="game">Canvas unsupported</canvas>
+        <p id="messageBox"></p>
+    </body>
+</html>
